@@ -8,6 +8,9 @@ const ProductCards=(category)=>{
     useEffect(()=>{
         window.scrollTo(0,0)
     },[])
+    const timeout=setTimeout(()=>{
+        sizefunc()
+    },1)
     const {id}=useParams()
     const [productdata,setProductdata]=useState(items)
     const [size,setSize] = useState('')
@@ -29,7 +32,6 @@ const ProductCards=(category)=>{
       }
     useEffect(()=>{
         filterproduct(id);
-        sizefunc()
     },[id])
   
     return(

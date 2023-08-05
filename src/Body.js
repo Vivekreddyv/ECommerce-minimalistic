@@ -24,6 +24,9 @@ const Body=()=>{
     const sizefunc=()=>{
       const siz=window.innerWidth >=720?'17rem':'91vw';
       setSize(siz)
+      const timeout=setTimeout(()=>{
+        sizefunc()
+      },1)
     }
     return(
         <div>
