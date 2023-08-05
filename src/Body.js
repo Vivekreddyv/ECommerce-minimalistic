@@ -19,15 +19,17 @@ const Body=()=>{
     const [size,setSize] = useState('')
     useEffect(()=>{
         filterproduct()
-        sizefunc()
     },[])
     const sizefunc=()=>{
       const siz=window.innerWidth >=720?'17rem':'91vw';
       setSize(siz)
-      const timeout=setTimeout(()=>{
-        sizefunc()
-      },1)
     }
+    useEffect(()=>{
+        sizefunc()
+    })
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    })
     return(
         <div>
             <div className='featured'>
