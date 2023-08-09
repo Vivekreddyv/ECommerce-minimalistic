@@ -10,7 +10,6 @@ import Products from './pages/products';
 import Productdesc from './pages/productsdetails';
 import Body from './Body';
 import Error from './components/error.js'
-import Offers from './components/offers';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/body.css'
 import './styles/trendingslider.css'
@@ -20,6 +19,10 @@ import './styles/footer.css'
 import './styles/products.css'
 import './styles/productsdetails.css'
 import './styles/cart.css'
+import './styles/login.css'
+import './styles/signup.css'
+import Signup from './components/signup';
+import Login from './components/login';
 
 const Main=()=>{
   return(
@@ -30,15 +33,7 @@ const Main=()=>{
     </div>
   )
 }
-const Offerscomponent=()=>{
-  return(
-    <div>
-    <Nav/>
-    <Offers/>
-    <Footer/>
-    </div>
-  )
-}
+
 const router=createBrowserRouter([
   {
     path: "/",
@@ -54,8 +49,12 @@ const router=createBrowserRouter([
     element: <Productdesc/>
   },
   {
-    path:'/offers',
-    element: <Offerscomponent/>
+    path:'/signup',
+    element:<Signup/>
+  },
+  {
+    path:'/login',
+    element:<Login/>
   }
 ])
 ReactDOM.createRoot(document.getElementById("root")).render(
