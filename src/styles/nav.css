@@ -36,7 +36,14 @@ a:active { text-decoration: none; }
     font-family: 'blinker';
     font-size: 1.15rem;
     font-weight: 400;
+    transition: all 0.2s;
     margin-bottom: 10px;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+.navli:hover{
+    text-decoration: underline;
+    transition: all 0.2s;
 }
 .navlist{
     display: flex;

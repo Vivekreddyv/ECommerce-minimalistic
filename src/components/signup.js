@@ -24,7 +24,7 @@ const Signup=()=>{
             alert("enter valid credentials")
         }
         else{
-            navigate('/')
+            navigate('/login')
         }
     }
     
@@ -39,7 +39,7 @@ const Signup=()=>{
                     <input className="input" type="text" name="name" value={credentials.name} onChange={handlevalue}></input>
                 </div>
                 <div>
-                    <h1 className="heading">Email <address></address></h1>
+                    <h1 className="heading">Email address</h1>
                     <input className="input" type="email" name="email" value={credentials.email} onChange={handlevalue}></input>
                 </div>
                 <div>
@@ -47,8 +47,8 @@ const Signup=()=>{
                     <input className="input" type="password" name="password" value={credentials.password} onChange={handlevalue}></input>
                 </div>
                 <div>
-                <button onClick={handlesubmit}>Register</button>
-                <Link to='/login'><button>Already a user?</button></Link>
+                <button className="signupbtn1" onClick={handlesubmit}>Submit</button>
+                <Link to='/login'><button className="signupbtn2">Already a user</button></Link>
                 </div>
                 </div>
             </div> 

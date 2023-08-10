@@ -22,27 +22,38 @@ const Login=()=>{
             alert('enter valid credentials')
         }
         if(json.success){
+            localStorage.setItem("useremail",credentials.email)
             localStorage.setItem("authtoken",json.authtoken)
             navigate('/')
         }
     }
     return(
         <div>
-            <Nav/>
-            <div className="login">
+        <Nav/>
+        <div className="login">
+        <div className="login1">
             <div>
-                <h1>Email</h1>
-                <input type="email" name="email" value={credentials.email} onChange={handlevalue}></input>
-                <h1>Password</h1>
-                <input type="password" name="password" value={credentials.password} onChange={handlevalue}></input>
+                <div style={{marginBottom:'2rem',marginLeft:'10vw'}}>
+                    <h4 style={{fontSize:'1.5rem'}}><span style={{fontWeight:'700',fontSize:'1.7rem'}}>Email:</span>&nbsp;test123@gmail.com</h4>
+                    <h4 style={{fontSize:'1.5rem'}}><span style={{fontWeight:'700',fontSize:'1.7rem'}}>Password:</span>&nbsp;test1234</h4>
+                </div>
+            <div>
+                <h1 className="headinglogin">Email address</h1>
+                <input className="inputlogin" type="email" name="email" value={credentials.email} onChange={handlevalue}></input>
             </div>
             <div>
-                <button onClick={handlesubmit}>Login</button>
-                <Link to='/signup'><button>New User?</button></Link>
+                <h1 className="headinglogin">Password</h1>
+                <input className="inputlogin" type="password" name="password" value={credentials.password} onChange={handlevalue}></input>
+            </div>
+            <div>
+            <button className="loginbtn1" onClick={handlesubmit}>Login</button>
+            <Link to='/signup'><button className="loginbtn2">New User</button></Link>
             </div>
             </div>
-            <Footer/>
+        </div> 
         </div>
+        <Footer/>
+    </div>
     )
 }
 export default Login

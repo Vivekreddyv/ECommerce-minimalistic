@@ -46,10 +46,23 @@ useEffect(() => {
     setCart(savedCart);
   }
 }, []);
-
-useEffect(() => {
-  localStorage.setItem("products", JSON.stringify(cart));
-}, [cart]);
+const handlecheckout=async(e)=>{
+  e.preventDefault()
+  const response=await fetch('http://localhost:5000/api/orderdata',{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({email:localStorage.getItem("useremail"),orderdata:cart})
+  })
+  const json=await response.json()
+  if(!json.success){
+    alert('something went wrong')
+  }
+  if(json.success){
+    setCart([])
+  }
+}
   return (
     <>
       <Button style={{color:'black',fontSize:'1.15rem',marginBottom:'15px',backgroundColor:'white',border:'none'}} variant="primary" onClick={handleShow}>
@@ -93,7 +106,7 @@ useEffect(() => {
           <p style={{fontSize:'1.3rem',fontWeight:'700'}}><span style={{fontSize:'1.1rem'}}><i class="fa-solid fa-indian-rupee-sign"></i></span>&nbsp;{totalprice().toLocaleString('EN-IN')}</p>
         </div>
         <div>
-          <button className="checkout">Go to Checkout</button>
+          <button onClick={handlecheckout} className="checkout">Go to Checkout</button>
         </div>
        </div>
         </div>
